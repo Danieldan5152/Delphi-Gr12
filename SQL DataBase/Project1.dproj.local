@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017-02-20 08:22:29.746.pas,\\neo.wonnies.local\users\16783\Documents\RAD Studio\Projects\Unit1.pas=\\neo.wonnies.local\users\16783\Desktop\Delphi\DataBase\Unit1.pas</Transaction>
+    <Transaction>2017-02-20 08:22:29.746.dfm,\\neo.wonnies.local\users\16783\Documents\RAD Studio\Projects\Unit1.dfm=\\neo.wonnies.local\users\16783\Desktop\Delphi\DataBase\Unit1.dfm</Transaction>
+    <Transaction>2017-02-20 08:22:30.802.dproj,\\neo.wonnies.local\users\16783\Documents\RAD Studio\Projects\Project1.dproj=\\neo.wonnies.local\users\16783\Desktop\Delphi\DataBase\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
