@@ -1,0 +1,39 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, StdCtrls, Spin;
+
+type
+  TForm1 = class(TForm)
+    stg1: TStringGrid;
+    btn1: TButton;
+    edt1: TEdit;
+    sedRy: TSpinEdit;
+    sedKol: TSpinEdit;
+    procedure btn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btn1Click(Sender: TObject);
+var
+  iRy,iKol : integer;
+begin
+  iKol := sedKol.Value;
+  iRy := sedRy.Value;
+  stg1.Cells[iKol,iRy] := edt1.Text;
+end;
+
+end.

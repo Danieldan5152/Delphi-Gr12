@@ -1,0 +1,80 @@
+unit frmHockey_u;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, Buttons;
+
+type
+  TfrmHockey = class(TForm)
+    stgResults: TStringGrid;
+    btnReadInData: TButton;
+    btnDisplay: TButton;
+    lblOutput: TLabel;
+    bmbClose: TBitBtn;
+    procedure FormActivate(Sender: TObject);
+    procedure btnReadInDataClick(Sender: TObject);
+    procedure btnDisplayClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmHockey: TfrmHockey;
+  arrGameNo :Array[1..5,1..4] of Integer;
+
+implementation
+
+{$R *.dfm}
+
+
+
+procedure TfrmHockey.btnDisplayClick(Sender: TObject);
+VAR
+iCol ,iRow :Integer;
+begin
+  for iRow := 1 to 4 do
+    Begin
+      for iCol := 1 to 5 do
+        Begin
+          stgResults.Cells[iRow , iCol] := IntToStr(arrGameNo[iCol , iRow]);
+        End;
+    End;
+
+
+end;
+
+procedure TfrmHockey.btnReadInDataClick(Sender: TObject);
+VAR
+iCol ,iRow  : Integer;
+begin
+  for iRow := 1 to 5 do
+    Begin
+      for iCol := 1 to 4 do
+        Begin
+          arrGameNo[iRow, iCol]:= StrToInt(InputBox('School ' + IntToStr(iRow) , 'Type in Game ' + IntToStr(iCol) + ' points', '0' ));
+        End;
+    End;
+
+end;
+
+procedure TfrmHockey.FormActivate(Sender: TObject);
+Var
+  iNo, iNo2 : Integer;
+begin
+  for iNo := 1 to 4 do
+    stgResults.Cells[0, iNo] := IntToStr(iNo);
+
+    for iNo2 := 1 to 5 do
+      stgResults.Cells[iNo2 , 0] := 'Game ' + IntToStr(iNo2);
+
+stgResults.Cells[6, 0] := 'TOTAL';
+stgResults.Cells[7, 0] := 'AVERAGE';
+
+end;
+
+end.
