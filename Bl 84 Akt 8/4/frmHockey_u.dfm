@@ -2,8 +2,8 @@ object frmHockey: TfrmHockey
   Left = 284
   Top = 260
   Caption = 'Hockey'
-  ClientHeight = 284
-  ClientWidth = 721
+  ClientHeight = 195
+  ClientWidth = 683
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -27,6 +27,21 @@ object frmHockey: TfrmHockey
     Height = 145
     ColCount = 8
     TabOrder = 3
+    ColWidths = (
+      64
+      64
+      64
+      64
+      64
+      64
+      64
+      64)
+    RowHeights = (
+      24
+      24
+      24
+      24
+      24)
   end
   object btnReadInData: TButton
     Left = 576
@@ -44,15 +59,15 @@ object frmHockey: TfrmHockey
     Height = 49
     Caption = 'Display'
     TabOrder = 1
+    OnClick = btnDisplayClick
   end
   object bmbClose: TBitBtn
     Left = 576
     Top = 136
     Width = 81
     Height = 41
-    DoubleBuffered = True
     Kind = bkClose
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     TabOrder = 2
   end
 end

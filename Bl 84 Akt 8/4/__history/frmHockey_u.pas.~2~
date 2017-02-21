@@ -17,48 +17,45 @@ type
     procedure btnReadInDataClick(Sender: TObject);
 
   private
-    { Private declarations }
+    procedure Defaults;
   public
     { Public declarations }
   end;
 
 var
   frmHockey: TfrmHockey;
-  arrGameNo :Array[1..5,1..4] of Integer;
-
+  iKol, iRy : integer;
+  arrNumb: array[1..4,1..5] of integer;
 implementation
 
 {$R *.dfm}
-
-
-
 procedure TfrmHockey.btnReadInDataClick(Sender: TObject);
-VAR
-iNo, iNo2 : Integer;
 begin
-  for iNo := 1 to 5 do
-    Begin
-      for iNo2 := 1 to 4 do
-        Begin
-
-        End;
-    End;
+  for iRy := 1 to 4 do
+    for iKol := 1 to 5 do
+      begin
+//        arrNum[
+      end;
 
 end;
 
-procedure TfrmHockey.FormActivate(Sender: TObject);
-Var
-  iNo, iNo2 : Integer;
+procedure TfrmHockey.Defaults;
 begin
-  for iNo := 1 to 4 do
-    stgResults.Cells[0, iNo] := IntToStr(iNo);
+  for iRy := 1 to 4 do
+    stgResults.Cells[0,iRy] := IntToStr(iRy);
 
-    for iNo2 := 1 to 5 do
-      stgResults.Cells[iNo2 , 0] := 'Game ' + IntToStr(iNo2);
+  for iKol := 1 to 5 do
+    stgResults.Cells[iKol,0] := 'Game ' + IntToStr(iKol);
 
-stgResults.Cells[6, 0] := 'TOTAL';
-stgResults.Cells[6, 0] := 'AVERAGE';
+  stgResults.Cells[6,0] := 'TOTAL';
+  stgResults.Cells[7,0] := 'AVERAGE';
 
+end;
+
+
+procedure TfrmHockey.FormActivate(Sender: TObject);
+begin
+  Defaults;
 end;
 
 end.

@@ -30,7 +30,7 @@ object frmHockey: TfrmHockey
   end
   object btnReadInData: TButton
     Left = 576
-    Top = 16
+    Top = 17
     Width = 81
     Height = 49
     Caption = 'Read in Data'
@@ -44,7 +44,6 @@ object frmHockey: TfrmHockey
     Height = 49
     Caption = 'Display'
     TabOrder = 1
-    OnClick = btnDisplayClick
   end
   object bmbClose: TBitBtn
     Left = 576
