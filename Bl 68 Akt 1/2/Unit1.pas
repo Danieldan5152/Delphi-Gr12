@@ -14,9 +14,14 @@ type
     redAddresses: TRichEdit;
     btnPull: TButton;
     btnSave: TButton;
+    sedPos: TSpinEdit;
+    btnAdd: TButton;
     procedure btnPullClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
+    procedure btnAddClick(Sender: TObject);
   private
+    procedure ShowAd;
+    procedure TestArr;
     { Private declarations }
   public
     { Public declarations }
@@ -25,32 +30,61 @@ type
 var
   frmGardens: TfrmGardens;
   tAddress : Textfile;
-  K : integer;
+  K , iArrMax: integer;
+  arrAddress : array [1..20] of string;
 implementation
 
 {$R *.dfm}
-
-procedure TfrmGardens.btnPullClick(Sender: TObject);
+procedure TfrmGardens.ShowAd;//show addresses
 begin
-  AssignFile(tAddress, 'Gardens.txt');
-
-  try
-    Reset(tAddress)
-  Except
-    ShowMessage('File Gardens.txt does not exist');
-    exit;
-  end;
-
-  while not EOF(tAddress) do
+  redAddresses.Clear; //cleans rich edit
+  for K := 1 to 9 do
     begin
-      //Readln(tAddress,);
-
+      redAddresses.Lines.add(IntToStr(K) + '   ' + arrAddress[K]);
+    end;
+  for K := 10 to 20 do
+    begin
+      redAddresses.Lines.add(IntToStr(K) + '  ' + arrAddress[K]);
     end;
 
 end;
 
-procedure TfrmGardens.btnSaveClick(Sender: TObject);
+procedure TfrmGardens.TestArr; //test max value
 begin
+  K := 20;
+  repeat
+    begin
+      if arrAddress[K] = '' then
+        begin
+          iArrMax := K;
+        end;
+      dec(K)
+    end;
+  until (K = 1);
+  sedPos.MaxValue := iArrMax;
+ // edtAddress.Text := IntToStr(iArrMax); //test delete
+
+end;
+
+procedure TfrmGardens.btnAddClick(Sender: TObject);
+var
+  iLocat : integer;
+begin
+  iLocat := sedPos.Value;
+  TestArr;
+
+  for K := iArrMax downto iLocat do
+    begin
+      arrAddress[K+1] := arrAddress[K];
+     // showmessage(IntToStr(iArrMax) + '    ' + IntToStr(iLocat));
+    end;
+  arrAddress[iLocat] := edtAddress.text;
+  ShowAd;
+end;
+
+procedure TfrmGardens.btnPullClick(Sender: TObject);
+begin
+  K := 0;
   AssignFile(tAddress, 'Gardens.txt');
 
   try
@@ -60,6 +94,41 @@ begin
     exit;
   end;
 
+  while not EOF(tAddress) do //adds to the array
+    begin
+      Inc(K);
+      Readln(tAddress,arrAddress[K]);
+    end;
+
+  TestArr;
+  sedPos.Value := iArrMax;
+  btnAdd.Visible := true;
+
+  ShowAd;
+  CloseFile(tAddress);
+end;
+
+procedure TfrmGardens.btnSaveClick(Sender: TObject);
+var
+  sSave : string;
+begin
+  AssignFile(tAddress, 'Gardens.txt');
+  ReWrite(tAddress);
+  try
+    Reset(tAddress)
+  Except
+    ShowMessage('File Gardens.txt does not exist');
+    exit;
+  end;
+  TestArr;
+  for K := 1 to iArrMax do
+    begin
+      // sSave := sSave + arrAddress[K];
+      writeln(tAddress,arrAddress[K]);
+    end;
+ // writeln(tAddress,sSave);
+  CloseFile(tAddress);
+  Reset(tAddress);
 end;
 
 end.

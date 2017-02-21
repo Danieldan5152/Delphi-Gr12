@@ -1,0 +1,101 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Math, Buttons, ExtCtrls, Spin, Vcl.ComCtrls;
+
+type
+  TfrmGardens = class(TForm)
+    bmbReset: TBitBtn;
+    bmbClose: TBitBtn;
+    edtAddress: TEdit;
+    redAddresses: TRichEdit;
+    btnPull: TButton;
+    btnSave: TButton;
+    sedPos: TSpinEdit;
+    btnAdd: TButton;
+    procedure btnPullClick(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
+  private
+    procedure ShowAd;
+    procedure TestArr;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGardens: TfrmGardens;
+  tAddress : Textfile;
+  K , iArrMax: integer;
+  arrAddress : array [1..20] of string;
+implementation
+
+{$R *.dfm}
+procedure TfrmGardens.ShowAd;//show addresses
+begin
+  redAddresses.Clear; //cleans rich edit
+  for K := 1 to 9 do
+    begin
+      redAddresses.Lines.add(IntToStr(K) + '   ' + arrAddress[K]);
+    end;
+  for K := 10 to 20 do
+    begin
+      redAddresses.Lines.add(IntToStr(K) + '  ' + arrAddress[K]);
+    end;
+
+end;
+
+procedure TfrmGardens.TestArr; //test max value
+begin
+  K := 20;
+  repeat
+    begin
+      if arrAddress[K] = '' then
+        begin
+          iArrmax := K;
+        end;
+      dec(K)
+    end;
+  until (K = 1);
+  sedPos.MaxValue := iArrmax;
+  edtAddress.Text := IntToStr(iArrmax);
+end;
+
+procedure TfrmGardens.btnPullClick(Sender: TObject);
+begin
+  K := 0;
+  AssignFile(tAddress, 'Gardens.txt');
+
+  try
+    Reset(tAddress)
+  Except
+    ShowMessage('File Gardens.txt does not exist');
+    exit;
+  end;
+
+  while not EOF(tAddress) do //adds to the array
+    begin
+      Inc(K);
+      Readln(tAddress,arrAddress[K]);
+    end;
+  TestArr;
+  ShowAd;
+end;
+
+procedure TfrmGardens.btnSaveClick(Sender: TObject);
+begin
+  AssignFile(tAddress, 'Gardens.txt');
+
+  try
+    Reset(tAddress)
+  Except
+    ShowMessage('File Gardens.txt does not exist');
+    exit;
+  end;
+
+end;
+
+end.
