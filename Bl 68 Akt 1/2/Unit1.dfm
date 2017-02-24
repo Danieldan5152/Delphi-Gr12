@@ -19,6 +19,8 @@ object frmGardens: TfrmGardens
     Width = 75
     Height = 25
     Caption = 'bmbReset'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
     TabOrder = 0
   end
   object bmbClose: TBitBtn
@@ -27,6 +29,8 @@ object frmGardens: TfrmGardens
     Width = 75
     Height = 25
     Caption = 'bmbClose'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
     TabOrder = 1
   end
   object edtAddress: TEdit
@@ -51,7 +55,6 @@ object frmGardens: TfrmGardens
       'redAddresses')
     ParentFont = False
     TabOrder = 3
-    Zoom = 100
   end
   object btnPull: TButton
     Left = 192

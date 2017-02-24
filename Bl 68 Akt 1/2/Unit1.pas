@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Math, Buttons, ExtCtrls, Spin, Vcl.ComCtrls;
+  Dialogs, StdCtrls, Math, Buttons, ExtCtrls, Spin, ComCtrls;
 
 type
   TfrmGardens = class(TForm)
@@ -109,11 +109,8 @@ begin
 end;
 
 procedure TfrmGardens.btnSaveClick(Sender: TObject);
-var
-  sSave : string;
 begin
   AssignFile(tAddress, 'Gardens.txt');
-  ReWrite(tAddress);
   try
     Reset(tAddress)
   Except
@@ -121,14 +118,25 @@ begin
     exit;
   end;
   TestArr;
-  for K := 1 to iArrMax do
+  K := 0;
+  while not EOF (tAddress) do
+    begin
+      repeat
+        begin
+          inc(K);
+          writeln(tAddress, arrAddress[K]);
+        end;
+      until K = iArrMax ;
+    end;
+    ReWrite(tAddress);
+{ for K := 1 to iArrMax do
     begin
       // sSave := sSave + arrAddress[K];
       writeln(tAddress,arrAddress[K]);
-    end;
+    end; }
  // writeln(tAddress,sSave);
   CloseFile(tAddress);
-  Reset(tAddress);
+  //Reset(tAddress);
 end;
 
 end.
