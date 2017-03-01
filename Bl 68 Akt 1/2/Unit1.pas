@@ -112,23 +112,20 @@ procedure TfrmGardens.btnSaveClick(Sender: TObject);
 begin
   AssignFile(tAddress, 'Gardens.txt');
   try
-    Reset(tAddress)
+    ReWrite(tAddress);
   Except
     ShowMessage('File Gardens.txt does not exist');
     exit;
   end;
   TestArr;
   K := 0;
-  while not EOF (tAddress) do
-    begin
       repeat
         begin
           inc(K);
           writeln(tAddress, arrAddress[K]);
         end;
       until K = iArrMax ;
-    end;
-    ReWrite(tAddress);
+
 { for K := 1 to iArrMax do
     begin
       // sSave := sSave + arrAddress[K];

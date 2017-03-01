@@ -1,9 +1,9 @@
 object frmGardens: TfrmGardens
-  Left = 0
-  Top = 0
+  Left = 733
+  Top = 208
   Caption = 'frmGardens'
   ClientHeight = 571
-  ClientWidth = 1067
+  ClientWidth = 757
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,25 +11,26 @@ object frmGardens: TfrmGardens
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
   PixelsPerInch = 96
   TextHeight = 13
   object bmbReset: TBitBtn
-    Left = 632
-    Top = 368
+    Left = 536
+    Top = 360
     Width = 75
     Height = 25
-    Caption = 'bmbReset'
     DoubleBuffered = True
+    Kind = bkRetry
     ParentDoubleBuffered = False
     TabOrder = 0
   end
   object bmbClose: TBitBtn
-    Left = 832
-    Top = 384
+    Left = 640
+    Top = 360
     Width = 75
     Height = 25
-    Caption = 'bmbClose'
     DoubleBuffered = True
+    Kind = bkClose
     ParentDoubleBuffered = False
     TabOrder = 1
   end
