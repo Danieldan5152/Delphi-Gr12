@@ -1,0 +1,33 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, dmEdward_u, StdCtrls, ExtCtrls;
+
+type
+  TfrmEdward = class(TForm)
+    DBGrid1: TDBGrid;
+    rgpList: TRadioGroup;
+    btnShow: TButton;
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEdward: TfrmEdward;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmEdward.FormActivate(Sender: TObject);
+begin
+  dmEdward.qryEdward.Active := true; //show data
+end;
+
+end.

@@ -1,9 +1,9 @@
 object frmEdwardShop: TfrmEdwardShop
   Left = 0
   Top = 0
-  Caption = 'Edward Shop'
-  ClientHeight = 435
-  ClientWidth = 648
+  Caption = 'frmEdwardShop'
+  ClientHeight = 636
+  ClientWidth = 728
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,14 +11,13 @@ object frmEdwardShop: TfrmEdwardShop
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
-  object DBGrid1: TDBGrid
+  object dbgShow: TDBGrid
     Left = 8
     Top = 8
-    Width = 625
-    Height = 281
+    Width = 649
+    Height = 433
     DataSource = dmEdward.dsrEdward
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -27,12 +26,12 @@ object frmEdwardShop: TfrmEdwardShop
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
   end
-  object rgpList: TRadioGroup
-    Left = 16
-    Top = 312
-    Width = 185
-    Height = 105
-    Caption = 'Items'
+  object rgpItems: TRadioGroup
+    Left = 24
+    Top = 450
+    Width = 225
+    Height = 178
+    Caption = 'rgpItems'
     Items.Strings = (
       'Kg Products'
       'Cape Supplier'
@@ -42,28 +41,27 @@ object frmEdwardShop: TfrmEdwardShop
     TabOrder = 1
   end
   object btnShow: TButton
-    Left = 224
-    Top = 318
+    Left = 296
+    Top = 488
     Width = 75
     Height = 25
-    Caption = '&Show'
+    Caption = 'btnShow'
     TabOrder = 2
     OnClick = btnShowClick
   end
   object bmbRetry: TBitBtn
-    Left = 336
-    Top = 318
+    Left = 392
+    Top = 488
     Width = 75
     Height = 25
     DoubleBuffered = True
     Kind = bkRetry
     ParentDoubleBuffered = False
     TabOrder = 3
-    OnClick = bmbRetryClick
   end
   object bmbClose: TBitBtn
-    Left = 448
-    Top = 318
+    Left = 488
+    Top = 488
     Width = 75
     Height = 25
     DoubleBuffered = True

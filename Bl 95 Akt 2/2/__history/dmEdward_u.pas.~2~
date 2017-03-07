@@ -1,0 +1,23 @@
+unit dmEdward_u;
+
+interface
+
+uses
+  SysUtils, Classes;
+
+type
+  TdmEdward = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmEdward: TdmEdward;
+
+implementation
+
+{$R *.dfm}
+
+end.

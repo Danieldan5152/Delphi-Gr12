@@ -4,18 +4,15 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, DBGrids, dmEdward_u, StdCtrls, ExtCtrls, Buttons;
+  Dialogs, Grids, DBGrids, dmEdward_u, StdCtrls, ExtCtrls;
 
 type
   TfrmEdwardShop = class(TForm)
     DBGrid1: TDBGrid;
     rgpList: TRadioGroup;
     btnShow: TButton;
-    bmbRetry: TBitBtn;
-    bmbClose: TBitBtn;
     procedure FormActivate(Sender: TObject);
     procedure btnShowClick(Sender: TObject);
-    procedure bmbRetryClick(Sender: TObject);
   private
     procedure Kg_Prod;
     procedure Cape_Supp;
@@ -77,7 +74,9 @@ begin
     begin
       qryEdward.SQL.clear;
       qryEdward.SQL.Add('SELECT BrandName,ProductDesc,CostPrice FROM Item');
-      qryEdward.SQL.Add('WHERE BrandName = "KOO" AND CostPrice >= 40.00 AND CostPrice <= 60.00');
+      qryEdward.SQL.Add('WHERE BrandName = "KOO"');
+      qryEdward.SQL.Add('WHERE CostPrice >= 40.00');
+      qryEdward.SQL.Add('WHERE CostPrice <= 60.00');
       qryEdward.Open;
     end;
 end;
@@ -88,18 +87,8 @@ begin
     begin
       qryEdward.SQL.clear;
       qryEdward.SQL.Add('SELECT SupplierID,BrandName,ProductDesc FROM Item');
-      qryEdward.SQL.Add('WHERE BrandName = "Chappies" OR ProductDesc LIKE "%bubblegum%"');
-      qryEdward.Open;
-    end;
-end;
-
-procedure TfrmEdwardShop.bmbRetryClick(Sender: TObject);
-begin //default start
-  rgpList.ItemIndex := -1;
-  with dmEdward do
-    begin
-      qryEdward.SQL.clear;
-      qryEdward.SQL.Add('SELECT * FROM Item');
+      qryEdward.SQL.Add('WHERE BrandName = "Chappies"');
+      qryEdward.SQL.Add('WHERE ProductDesc LIKE "bubblegum%"');
       qryEdward.Open;
     end;
 end;
@@ -120,7 +109,8 @@ begin
     3 : KOO       ;
     4 : Bubble    ;
   end;
-end;
+
+end;
 
 procedure TfrmEdwardShop.FormActivate(Sender: TObject);
 begin
