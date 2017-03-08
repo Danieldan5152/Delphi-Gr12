@@ -44,7 +44,11 @@
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
 			<DCCReference Include="Unit1.pas">
-				<Form>Form1</Form>
+				<Form>frmGrants</Form>
+			</DCCReference>
+			<DCCReference Include="dmGrants_u.pas">
+				<Form>dmGrant</Form>
+				<DesignClass>TDataModule</DesignClass>
 			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>

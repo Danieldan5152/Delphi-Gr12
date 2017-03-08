@@ -1,0 +1,18 @@
+object DataModule2: TDataModule2
+  OldCreateOrder = False
+  Height = 234
+  Width = 382
+  object conGrants: TSQLConnection
+    Left = 40
+    Top = 32
+  end
+  object qryGrants: TSQLQuery
+    Params = <>
+    Left = 104
+    Top = 32
+  end
+  object dsrGrants: TDataSource
+    Left = 168
+    Top = 32
+  end
+end

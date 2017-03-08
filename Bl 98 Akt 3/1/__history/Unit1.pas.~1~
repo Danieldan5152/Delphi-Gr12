@@ -4,14 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls;
+  Dialogs;
 
 type
-  TfrmGrants = class(TForm)
-    btnPayp: TButton;
-    btn: TButton;
-    Button3: TButton;
-    Button4: TButton;
+  TForm1 = class(TForm)
   private
     { Private declarations }
   public
@@ -19,7 +15,7 @@ type
   end;
 
 var
-  frmGrants: TfrmGrants;
+  Form1: TForm1;
 
 implementation
 
