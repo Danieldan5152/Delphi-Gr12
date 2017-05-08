@@ -1,9 +1,9 @@
 object dmGrant: TdmGrant
   OldCreateOrder = False
-  Height = 76
-  Width = 246
+  Height = 61
+  Width = 224
   object dsrGrants: TDataSource
-    DataSet = qryGrants
+    DataSet = sqlGrants
     Left = 160
     Top = 8
   end
@@ -15,7 +15,7 @@ object dmGrant: TdmGrant
     Left = 24
     Top = 8
   end
-  object qryGrants: TADOQuery
+  object sqlGrants: TADOQuery
     Connection = conGrants
     Parameters = <>
     Left = 88

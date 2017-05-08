@@ -9,7 +9,7 @@ type
   TdmGrant = class(TDataModule)
     dsrGrants: TDataSource;
     conGrants: TADOConnection;
-    qryGrants: TADOQuery;
+    sqlGrants: TADOQuery;
   private
     { Private declarations }
   public

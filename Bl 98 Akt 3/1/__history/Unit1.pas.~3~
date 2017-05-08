@@ -1,0 +1,28 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TfrmGrants = class(TForm)
+    btnPayp: TButton;
+    btn: TButton;
+    Button3: TButton;
+    Button4: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGrants: TfrmGrants;
+
+implementation
+
+{$R *.dfm}
+
+end.
