@@ -1,0 +1,71 @@
+unit clsDog_u;
+
+interface
+type
+   TDog = class (TObject)
+   private
+        fName    :string;
+        fAge     :integer;
+        fWeight  :real;
+        fCategory:string;
+        
+   public
+     constructor Create(sName:string;iAge:integer;rWeight:real);
+     function GetName:string;
+     function GetAge:integer;
+     function GetWeight:double;
+     function GetCategory:string;
+     function CalculateFee:real;
+     procedure DetermineCategory;
+     
+ end;
+
+implementation
+  uses SysUtils;
+
+constructor TDog.Create(sName:string;iAge:integer;rWeight:real);
+begin
+  fName := Uppercase(sName);
+  fAge := iAge;
+  fWeight := rWeight;
+  fCategory := '';
+end;
+
+function TDog.GetName:string;
+begin
+  result := fName;
+end;
+
+function TDog.GetAge:integer;
+begin
+  result := fAge;
+end;
+
+function TDog.GetWeight:double;
+begin
+  result := fWeight;
+end;
+
+function TDog.GetCategory:string;
+begin
+  result := fCategory;
+end;
+
+function TDog.CalculateFee:real;
+begin
+  Result := fAge * fWeight;
+end;
+
+procedure TDog.DetermineCategory;
+begin
+ if (fWeight < 5.0) then
+   fCategory := 'Small dog'
+ else
+   if (fWeight >= 5) AND (fWeight < 10) then
+      fCategory := 'Medium size dog'
+   else
+      fCategory := 'Big dog';
+end;
+
+end.
+
